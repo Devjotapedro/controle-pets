@@ -1,0 +1,51 @@
+#### Rota para listar pets
+
+GET http://localhost:3000/
+Content-Type: application/json
+
+####
+
+#### Rota para cadastrar pets
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+    "id": 1,
+     "nome": "dog atualizar",
+     "especie": "cachorro",
+     "raca": "bulldog", 
+     "status": "check-in",
+     "nomeDono": "Joaozinho"
+}
+
+####
+
+#### Rota para atualizar pet
+PUT http://localhost:3000/1
+Content-Type: application/json
+
+{
+     "novoNome": "dogao",
+     "novaEspecie": "cachorro",
+     "novaRaca": "bull", 
+     "novoStatus": "check-in",
+     "novoNomeDono": "Joaozinho"
+}
+
+####
+
+#### Rota para atualizar o status 
+PUT http://localhost:3000/pets/1
+Content-Type: application/json
+
+{
+    "status": "checkout"
+}
+
+####
+
+#### Rota para deletar
+DELETE http://localhost:3000/1
+Content-Type: application/json
+
+####
