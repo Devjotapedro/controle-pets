@@ -12,7 +12,7 @@ const port = process.env.PORTA
 const pets = [];
 
 
-// listar
+// listar todos
 app.get('/', (req, res) => {
     try {
         if (pets.length === 0) {
@@ -21,9 +21,36 @@ app.get('/', (req, res) => {
 
         res.status(200).json(pets);
     } catch (error) {
-        res.status(500).json({msg: "Erro ao buscar produtos"});
+        res.status(500).json({msg: "Erro ao buscar pets"});
     }
 });
+
+// buscar por nome ou id
+
+app.get('/pets', (req, res) => {
+    try {
+        const { nome, id } = req.query;
+        if (nome) {
+            const query = pets.filter((pet) => pet.nome.toLowerCase().includes(nome.toLowerCase()));
+            return res.status(200).json(query);
+        }
+
+        if(id){
+            const query = pets.find((pet) => pet.id === parseInt(id));
+            if (!query){
+                return res.status(404).json({ msg: "Pet não encontrado" });
+            }
+            return res.status(200).json(query);
+        }
+
+
+    } catch (error) {
+        
+    }
+})
+
+
+
 
 // add
 

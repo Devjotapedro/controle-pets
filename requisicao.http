@@ -5,13 +5,28 @@ Content-Type: application/json
 
 ####
 
+#### Rota para listar por nome
+
+GET http://localhost:3000/pets?nome=doguinho
+Content-Type: application/json
+
+####
+
+#### Rota para listar por id
+
+GET http://localhost:3000/pets?id=2
+Content-Type: application/json
+
+
+####
+
 #### Rota para cadastrar pets
 POST http://localhost:3000/
 Content-Type: application/json
 
 {
-    "id": 1,
-     "nome": "dog atualizar",
+    "id": 2,
+     "nome": "dogao",
      "especie": "cachorro",
      "raca": "bulldog", 
      "status": "check-in",
